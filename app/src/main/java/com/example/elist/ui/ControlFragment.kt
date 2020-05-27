@@ -15,4 +15,9 @@ class ControlFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_spinner, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+    }
+
 }

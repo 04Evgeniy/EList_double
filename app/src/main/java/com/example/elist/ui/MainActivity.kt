@@ -11,8 +11,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        but_edd.setOnClickListener {
 
-        }
+        supportFragmentManager.beginTransaction()
+            .add(R.id.listMain, ControlFragment())
+            .commit()
+
+
     }
 }
