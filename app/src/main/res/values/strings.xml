@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">EList</string>
 
+    <string name="ic_list_file">Список</string>
+    <string name="ic_plus">Новый</string>
+    <string name="ic_settings">Настройки</string>
 
+    <string name="edit">Редактировать</string>
+    <string name="delete">Удалить</string>
+    <string name="completed">Выполнено</string>
+    <string name="reset">Сбросить</string>
 
 </resources>
