@@ -14,7 +14,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.elist.ItemActivity
 import com.example.elist.Lists.EList
 import com.example.elist.R
 import com.example.elist.data.DataBaseHandler
@@ -32,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(dasboard_toolbar)
         title = "eList"
+
         dbHandler = DataBaseHandler(this)
         rv_dashboard.layoutManager = LinearLayoutManager(this)
 
@@ -64,7 +64,6 @@ class MainActivity : AppCompatActivity() {
         val elistName = view.findViewById<EditText>(R.id.editv_elist)
 
         elistName.setText(eList.name)
-
         dialog.setView(view)
         dialog.setPositiveButton("Готово") { _: DialogInterface, _: Int ->
             if (elistName.text.isNotEmpty()) {

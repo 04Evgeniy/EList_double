@@ -1,4 +1,4 @@
-package com.example.elist
+package com.example.elist.ui
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.elist.Lists.EListItem
+import com.example.elist.R
 import com.example.elist.data.DataBaseHandler
 import com.example.elist.data.INTENT_ELIST_ID
 import com.example.elist.data.INTENT_ELIST_NAME
@@ -95,12 +96,21 @@ class ItemActivity : AppCompatActivity() {
     }
 
     private fun refreshList() {
-        rv_item.adapter = ItemAdapter(this, dbHandler.getToEListItems(elistId))
+        rv_item.adapter = ItemAdapter(
+            this,
+            dbHandler.getToEListItems(elistId)
+        )
     }
 
     class ItemAdapter(val activity: ItemActivity, val list: MutableList<EListItem>) : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(LayoutInflater.from(activity).inflate(R.layout.text_view_item, parent, false))
+            return ViewHolder(
+                LayoutInflater.from(activity).inflate(
+                    R.layout.text_view_item,
+                    parent,
+                    false
+                )
+            )
         }
 
         override fun getItemCount(): Int {

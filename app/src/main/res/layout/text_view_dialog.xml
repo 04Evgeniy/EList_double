@@ -10,7 +10,9 @@
         android:layout_height="wrap_content"
         android:layout_toStartOf="@id/iv_menu"
         android:layout_toLeftOf="@id/iv_menu"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"/>
 
     <ImageView
         android:id="@+id/iv_menu"
