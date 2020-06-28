@@ -13,11 +13,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.elist.Lists.EListItem
 import com.example.elist.R
 import com.example.elist.data.DataBaseHandler
 import com.example.elist.data.INTENT_ELIST_ID
 import com.example.elist.data.INTENT_ELIST_NAME
+import com.example.elist.lists.EListItem
 import kotlinx.android.synthetic.main.activity_item.*
 
 class ItemActivity : AppCompatActivity() {
@@ -127,7 +127,7 @@ class ItemActivity : AppCompatActivity() {
 
             holder.delete.setOnClickListener {
                 val dialog = AlertDialog.Builder(activity)
-//                dialog.setMessage("Подтвердите удаление")
+//                dialog.setMessage("Вы уверены?")
                 dialog.setTitle("Подтвердите удаление")
                 dialog.setPositiveButton("Удалить") { _: DialogInterface, _: Int ->
                     activity.dbHandler.deleteEListItem(list[position].id)

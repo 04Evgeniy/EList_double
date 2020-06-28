@@ -8,7 +8,6 @@
     android:background="@color/colorWhite"
     tools:context=".ui.MainActivity">
 
-
     <FrameLayout
         android:id="@+id/listMain"
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.elist.Lists
+package com.example.elist.lists
 
 class EList() {
 

@@ -14,11 +14,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.elist.Lists.EList
 import com.example.elist.R
 import com.example.elist.data.DataBaseHandler
 import com.example.elist.data.INTENT_ELIST_ID
 import com.example.elist.data.INTENT_ELIST_NAME
+import com.example.elist.lists.EList
 import com.example.elist.settings.SettingsActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -174,15 +174,3 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-//class SettingsList : AppCompatActivity(){
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        but_settings.setOnClickListener {
-//            val intent = Intent(this, SettingsActivity::class.java)
-//            startActivity(Intent(this, SettingsActivity::class.java))
-//        }
-//    }
-//}
