@@ -10,4 +10,6 @@
     <string name="completed">Выполнено</string>
     <string name="reset">Сбросить</string>
 
+    <string name="darkTheme">Ночной режим</string>
+
 </resources>

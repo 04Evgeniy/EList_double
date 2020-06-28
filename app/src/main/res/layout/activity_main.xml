@@ -26,13 +26,15 @@
                 android:id="@+id/dasboard_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:actionBarSize"
-                android:background="@color/colorWhite"/>
+                android:background="@color/colorWhite"
+                app:titleTextColor="?attr/textcolor"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_dashboard"
                 android:layout_below="@id/dasboard_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:background="?attr/backgroundcolor"/>
 
         </RelativeLayout>
 
@@ -44,7 +46,7 @@
         android:id="@+id/navigateFragment"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/colorWhite"
+        android:background="?attr/backgroundcolor"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

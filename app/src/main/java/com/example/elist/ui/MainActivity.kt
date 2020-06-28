@@ -19,6 +19,7 @@ import com.example.elist.R
 import com.example.elist.data.DataBaseHandler
 import com.example.elist.data.INTENT_ELIST_ID
 import com.example.elist.data.INTENT_ELIST_NAME
+import com.example.elist.settings.SettingsActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -55,6 +56,11 @@ class MainActivity : AppCompatActivity() {
             }
             dialog.show()
         }
+
+        but_settings.setOnClickListener{
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun updateEList(eList: EList) {
@@ -88,68 +94,95 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    class SettingsList : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-    class MainAdapter(val activity: MainActivity, val list: MutableList<EList>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(LayoutInflater.from(activity).inflate(R.layout.text_view_dialog, parent, false))
-        }
-
-        override fun getItemCount(): Int {
-            return list.size
-        }
-
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.listName.text = list[position].name
-
-            holder.listName.setOnClickListener {
-                val intent = Intent(activity, ItemActivity::class.java)
-                intent.putExtra(INTENT_ELIST_ID, list[position].id)
-                intent.putExtra(INTENT_ELIST_NAME, list[position].name)
-                activity.startActivity(intent)
-            }
-
-            holder.menu.setOnClickListener {
-                val popup = PopupMenu(activity, holder.menu)
-                popup.inflate(R.menu.menu)
-                popup.setOnMenuItemClickListener {
-
-                    when(it.itemId) {
-                        R.id.menu_edit->{
-                            activity.updateEList(list[position])
-                        }
-
-                        R.id.menu_delete->{
-                            val dialog = AlertDialog.Builder(activity)
-                            dialog.setTitle("Подтвердите удаление")
-                            dialog.setPositiveButton("Удалить") { _: DialogInterface, _: Int ->
-                                activity.dbHandler.deleteEList(list[position].id)
-                                activity.refreshList()
-                            }
-
-                            dialog.setNegativeButton("Отмена") { _: DialogInterface, _: Int ->
-                            }
-                            dialog.show()
-                        }
-
-                        R.id.menu_completed->{
-                            activity.dbHandler.completed(list[position].id, true)
-                        }
-
-                        R.id.menu_reset->{
-                            activity.dbHandler.completed(list[position].id, false)
-                        }
-                    }
-
-                    true
-                }
-                popup.show()
-            }
-        }
-
-        class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-            val listName : TextView = v.findViewById(R.id.textv_elist)
-            val menu : ImageView = v.findViewById(R.id.iv_menu)
+        but_settings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
         }
     }
 }
+
+        class MainAdapter(val activity: MainActivity, val list: MutableList<EList>) :
+            RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+                return ViewHolder(
+                    LayoutInflater.from(activity).inflate(R.layout.text_view_dialog, parent, false)
+                )
+            }
+
+            override fun getItemCount(): Int {
+                return list.size
+            }
+
+
+            override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+                holder.listName.text = list[position].name
+
+                holder.listName.setOnClickListener {
+                    val intent = Intent(activity, ItemActivity::class.java)
+                    intent.putExtra(INTENT_ELIST_ID, list[position].id)
+                    intent.putExtra(INTENT_ELIST_NAME, list[position].name)
+                    activity.startActivity(intent)
+                }
+
+                holder.menu.setOnClickListener {
+                    val popup = PopupMenu(activity, holder.menu)
+                    popup.inflate(R.menu.menu)
+                    popup.setOnMenuItemClickListener {
+
+                        when (it.itemId) {
+                            R.id.menu_edit -> {
+                                activity.updateEList(list[position])
+                            }
+
+                            R.id.menu_delete -> {
+                                val dialog = AlertDialog.Builder(activity)
+                                dialog.setTitle("Подтвердите удаление")
+                                dialog.setPositiveButton("Удалить") { _: DialogInterface, _: Int ->
+                                    activity.dbHandler.deleteEList(list[position].id)
+                                    activity.refreshList()
+                                }
+
+                                dialog.setNegativeButton("Отмена") { _: DialogInterface, _: Int ->
+                                }
+                                dialog.show()
+                            }
+
+                            R.id.menu_completed -> {
+                                activity.dbHandler.completed(list[position].id, true)
+                            }
+
+                            R.id.menu_reset -> {
+                                activity.dbHandler.completed(list[position].id, false)
+                            }
+                        }
+
+                        true
+                    }
+                    popup.show()
+                }
+            }
+
+            class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+                val listName: TextView = v.findViewById(R.id.textv_elist)
+                val menu: ImageView = v.findViewById(R.id.iv_menu)
+
+            }
+        }
+    }
+
+//class SettingsList : AppCompatActivity(){
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//
+//        but_settings.setOnClickListener {
+//            val intent = Intent(this, SettingsActivity::class.java)
+//            startActivity(Intent(this, SettingsActivity::class.java))
+//        }
+//    }
+//}
