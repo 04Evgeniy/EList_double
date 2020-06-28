@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
 import com.example.elist.R
-import com.example.elist.ui.MainActivity
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : AppCompatActivity() {
@@ -46,9 +45,9 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun restartApp() {
         val s = Intent(applicationContext, SettingsActivity::class.java)
-        val m = Intent(applicationContext, MainActivity::class.java)
+ //       val m = Intent(applicationContext, MainActivity::class.java)
         startActivity(s)
-        startActivity(m)
+ //       startActivity(m)
         finish()
     }
 }

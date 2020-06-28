@@ -18,26 +18,26 @@
             app:titleTextColor="?attr/textcolor" />
     
     <androidx.cardview.widget.CardView
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="?attr/cardbackground">
 
         <LinearLayout
-            android:layout_width="400dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="10dp">
-
 
             <Switch
                 android:id="@+id/my_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:textStyle="normal"
-                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="2dp"
+                android:text="@string/darkTheme"
                 android:textColor="?attr/textcolor"
-                android:text="@string/darkTheme" />
+                android:textSize="20sp"
+                android:textStyle="normal" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
